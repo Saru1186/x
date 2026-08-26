@@ -1,0 +1,1673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For Sachi ❤️</title>
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#070707;
+    color:white;
+    font-family:'Poppins',sans-serif;
+    overflow-x:hidden;
+}
+
+
+/* =========================================
+   PASSWORD SCREEN
+========================================= */
+
+#lockScreen{
+
+    position:fixed;
+    inset:0;
+    z-index:99999;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:
+    radial-gradient(
+        circle at center,
+        #3b1c30,
+        #120b10 40%,
+        #050505 80%
+    );
+
+}
+
+.lockBox{
+
+    width:90%;
+    max-width:420px;
+
+    text-align:center;
+
+}
+
+.lockHeart{
+
+    font-size:65px;
+
+    animation:pulse 1.5s infinite;
+
+}
+
+.lockBox h1{
+
+    font-family:'Playfair Display',serif;
+
+    font-size:48px;
+
+    margin:15px 0 8px;
+
+}
+
+.lockBox p{
+
+    color:#aaa;
+
+    margin-bottom:25px;
+
+}
+
+.passwordInput{
+
+    width:100%;
+
+    padding:16px 20px;
+
+    border-radius:50px;
+
+    border:1px solid #444;
+
+    background:#111;
+
+    color:white;
+
+    text-align:center;
+
+    outline:none;
+
+    font-size:16px;
+
+}
+
+.enterBtn{
+
+    margin-top:15px;
+
+    padding:15px 38px;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:#e8a1bd;
+
+    color:#160b10;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.enterBtn:hover{
+
+    transform:scale(1.05);
+
+}
+
+#error{
+
+    color:#ff7187;
+
+    margin-top:15px;
+
+    display:none;
+
+}
+
+
+/* =========================================
+   COUNTDOWN SCREEN
+========================================= */
+
+#countdownScreen{
+
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:9999;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:25px;
+
+    background:
+
+    radial-gradient(
+        circle at center,
+        #321a2b,
+        #0b080b 45%,
+        #030303 85%
+    );
+
+}
+
+.countdownContainer{
+
+    width:100%;
+
+    max-width:900px;
+
+}
+
+.countdownContainer .smallText{
+
+    letter-spacing:4px;
+
+    color:#aaa;
+
+    font-size:12px;
+
+}
+
+.countdownContainer h1{
+
+    font-family:'Playfair Display',serif;
+
+    font-size:
+    clamp(45px,8vw,90px);
+
+    margin:20px 0 10px;
+
+}
+
+.countdownContainer .subtitle{
+
+    color:#999;
+
+    font-size:16px;
+
+}
+
+#countdown{
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:18px;
+
+    margin-top:50px;
+
+}
+
+.timeBox{
+
+    width:110px;
+
+    padding:22px 10px;
+
+    background:rgba(255,255,255,.04);
+
+    border:1px solid rgba(232,161,189,.2);
+
+    border-radius:20px;
+
+    backdrop-filter:blur(10px);
+
+}
+
+.timeBox span{
+
+    display:block;
+
+    color:#e8a1bd;
+
+    font-size:38px;
+
+    font-weight:600;
+
+}
+
+.timeBox small{
+
+    color:#777;
+
+}
+
+.waitText{
+
+    margin-top:50px;
+
+    color:#666;
+
+    font-size:13px;
+
+}
+
+
+/* =========================================
+   BIRTHDAY REVEAL
+========================================= */
+
+#birthdayReveal{
+
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:20000;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    background:#050505;
+
+    opacity:0;
+
+}
+
+#birthdayReveal.show{
+
+    display:flex;
+
+    animation:revealScreen 4s forwards;
+
+}
+
+.revealContent{
+
+    padding:20px;
+
+}
+
+.revealHeart{
+
+    font-size:75px;
+
+    animation:pulse 1.2s infinite;
+
+}
+
+.revealContent h1{
+
+    font-family:'Playfair Display',serif;
+
+    font-size:
+    clamp(55px,10vw,110px);
+
+    margin:20px 0;
+
+    background:
+    linear-gradient(
+        90deg,
+        #fff,
+        #e8a1bd,
+        #fff
+    );
+
+    background-size:200%;
+
+    -webkit-background-clip:text;
+
+    color:transparent;
+
+    animation:shine 2s infinite;
+
+}
+
+.revealContent p{
+
+    color:#aaa;
+
+}
+
+
+/* =========================================
+   MAIN WEBSITE
+========================================= */
+
+#website{
+
+    display:none;
+
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero{
+
+    min-height:100vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:30px;
+
+    background:
+
+    linear-gradient(
+        rgba(0,0,0,.3),
+        rgba(0,0,0,.85)
+    ),
+
+    url("hero.jpg")
+    center/cover no-repeat;
+
+}
+
+.heroSmall{
+
+    letter-spacing:5px;
+
+    color:#ddd;
+
+    font-size:12px;
+
+}
+
+.hero h1{
+
+    font-family:'Playfair Display',serif;
+
+    font-size:
+    clamp(70px,12vw,145px);
+
+    margin:20px 0;
+
+    line-height:1;
+
+}
+
+.hero p{
+
+    color:#ddd;
+
+    font-size:18px;
+
+}
+
+.scrollText{
+
+    margin-top:70px;
+
+    color:#e8a1bd;
+
+    animation:bounce 2s infinite;
+
+}
+
+
+/* =========================================
+   SECTIONS
+========================================= */
+
+section{
+
+    min-height:100vh;
+
+    padding:100px 8%;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+}
+
+.sectionTitle{
+
+    font-family:'Playfair Display',serif;
+
+    font-size:
+    clamp(40px,6vw,65px);
+
+    margin-bottom:20px;
+
+}
+
+.sectionSub{
+
+    color:#999;
+
+}
+
+
+/* =========================================
+   STORY
+========================================= */
+
+.timeline{
+
+    width:100%;
+
+    max-width:800px;
+
+    margin-top:40px;
+
+}
+
+.memory{
+
+    background:#111;
+
+    border:1px solid #252525;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    margin:20px 0;
+
+    text-align:left;
+
+    transition:.4s;
+
+}
+
+.memory:hover{
+
+    transform:translateY(-5px);
+
+    border-color:#e8a1bd;
+
+}
+
+.memory h3{
+
+    color:#e8a1bd;
+
+    margin-bottom:10px;
+
+}
+
+.memory p{
+
+    color:#aaa;
+
+    line-height:1.8;
+
+}
+
+
+/* =========================================
+   GALLERY
+========================================= */
+
+.gallery{
+
+    width:100%;
+
+    max-width:1000px;
+
+    margin-top:45px;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(220px,1fr));
+
+    gap:20px;
+
+}
+
+.gallery img{
+
+    width:100%;
+
+    height:300px;
+
+    object-fit:cover;
+
+    border-radius:20px;
+
+    transition:.5s;
+
+}
+
+.gallery img:hover{
+
+    transform:scale(1.04);
+
+}
+
+
+/* =========================================
+   REASONS
+========================================= */
+
+.reasons{
+
+    width:100%;
+
+    max-width:950px;
+
+    margin-top:45px;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(220px,1fr));
+
+    gap:20px;
+
+}
+
+.reason{
+
+    padding:30px;
+
+    background:#111;
+
+    border:1px solid #252525;
+
+    border-radius:20px;
+
+    transition:.4s;
+
+}
+
+.reason:hover{
+
+    transform:translateY(-8px);
+
+    border-color:#e8a1bd;
+
+}
+
+.reasonIcon{
+
+    font-size:38px;
+
+    margin-bottom:12px;
+
+}
+
+.reason h3{
+
+    margin-bottom:10px;
+
+}
+
+.reason p{
+
+    color:#aaa;
+
+    line-height:1.7;
+
+}
+
+
+/* =========================================
+   LETTER
+========================================= */
+
+.letter{
+
+    width:100%;
+
+    max-width:800px;
+
+    margin-top:40px;
+
+    padding:45px;
+
+    background:
+    linear-gradient(
+        145deg,
+        #171117,
+        #0b0b0b
+    );
+
+    border:1px solid #292929;
+
+    border-radius:25px;
+
+    line-height:1.9;
+
+    color:#ddd;
+
+    text-align:left;
+
+}
+
+
+/* =========================================
+   BIRTHDAY MESSAGE
+========================================= */
+
+.messageBox{
+
+    width:100%;
+
+    max-width:850px;
+
+    padding:45px;
+
+    margin-top:40px;
+
+    background:
+    linear-gradient(
+        145deg,
+        #171017,
+        #0b0b0b
+    );
+
+    border:1px solid rgba(232,161,189,.25);
+
+    border-radius:25px;
+
+    text-align:left;
+
+    line-height:1.9;
+
+    color:#ddd;
+
+}
+
+.messageBox p{
+
+    margin-bottom:25px;
+
+}
+
+.finalWish{
+
+    text-align:center;
+
+    color:#f0b3ca;
+
+    font-size:18px;
+
+}
+
+
+/* =========================================
+   FINAL SURPRISE
+========================================= */
+
+.surpriseBtn{
+
+    margin-top:30px;
+
+    padding:16px 35px;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:#e8a1bd;
+
+    color:#160b10;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+}
+
+#surprise{
+
+    display:none;
+
+    width:100%;
+
+    max-width:700px;
+
+    margin-top:40px;
+
+    animation:messageReveal 1s ease;
+
+}
+
+#surprise img{
+
+    width:100%;
+
+    border-radius:22px;
+
+    margin-bottom:25px;
+
+}
+
+
+/* =========================================
+   MUSIC
+========================================= */
+
+.musicBtn{
+
+    position:fixed;
+
+    right:20px;
+
+    bottom:20px;
+
+    width:55px;
+
+    height:55px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#e8a1bd;
+
+    z-index:5000;
+
+    cursor:pointer;
+
+    font-size:20px;
+
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer{
+
+    padding:40px;
+
+    text-align:center;
+
+    color:#555;
+
+}
+
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+@keyframes pulse{
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.15);
+    }
+
+}
+
+@keyframes bounce{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(10px);
+    }
+
+}
+
+@keyframes revealScreen{
+
+    0%{
+        opacity:0;
+    }
+
+    20%{
+        opacity:1;
+    }
+
+    70%{
+        opacity:1;
+    }
+
+    100%{
+        opacity:0;
+        pointer-events:none;
+    }
+
+}
+
+@keyframes shine{
+
+    0%{
+        background-position:0%;
+    }
+
+    100%{
+        background-position:200%;
+    }
+
+}
+
+@keyframes messageReveal{
+
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media(max-width:600px){
+
+    .lockBox h1{
+        font-size:40px;
+    }
+
+    .countdownContainer h1{
+        font-size:48px;
+    }
+
+    .timeBox{
+        width:75px;
+    }
+
+    .timeBox span{
+        font-size:28px;
+    }
+
+    .messageBox,
+    .letter{
+        padding:25px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     1. PASSWORD
+===================================================== -->
+
+<div id="lockScreen">
+
+    <div class="lockBox">
+
+        <div class="lockHeart">
+            ❤️
+        </div>
+
+        <h1>
+            A Little Secret
+        </h1>
+
+        <p>
+            This little world was made only for you.
+        </p>
+
+        <input
+            id="password"
+            class="passwordInput"
+            type="password"
+            placeholder="Enter the secret password"
+        >
+
+        <button
+            class="enterBtn"
+            onclick="unlock()"
+        >
+            Enter ❤️
+        </button>
+
+        <div id="error">
+            Hmm... wrong password 👀
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     2. COUNTDOWN ONLY
+===================================================== -->
+
+<div id="countdownScreen">
+
+    <div class="countdownContainer">
+
+        <div class="smallText">
+            SOMETHING SPECIAL IS WAITING
+        </div>
+
+        <h1>
+            Sachi Divas ❤️
+        </h1>
+
+        <p class="subtitle">
+            Come back when the countdown reaches zero.
+        </p>
+
+
+        <div id="countdown">
+
+            <div class="timeBox">
+                <span id="days">00</span>
+                <small>Days</small>
+            </div>
+
+            <div class="timeBox">
+                <span id="hours">00</span>
+                <small>Hours</small>
+            </div>
+
+            <div class="timeBox">
+                <span id="minutes">00</span>
+                <small>Minutes</small>
+            </div>
+
+            <div class="timeBox">
+                <span id="seconds">00</span>
+                <small>Seconds</small>
+            </div>
+
+        </div>
+
+
+        <p class="waitText">
+            🎀 Be patient... good things take time.
+        </p>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     3. BIRTHDAY REVEAL
+===================================================== -->
+
+<div id="birthdayReveal">
+
+    <div class="revealContent">
+
+        <div class="revealHeart">
+            ❤️
+        </div>
+
+        <h1>
+            Happy Sachi Divas
+        </h1>
+
+        <p>
+            Finally... your little surprise is here.
+        </p>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     4. MAIN WEBSITE
+===================================================== -->
+
+<div id="website">
+
+
+<!-- MUSIC -->
+
+<button
+    class="musicBtn"
+    id="musicButton"
+    onclick="toggleMusic()"
+    title="Play / Pause music"
+>
+    🔊
+</button>
+
+<audio
+    id="music"
+    loop
+>
+
+    <source
+        src="song.mp3"
+        type="audio/mpeg"
+    >
+
+</audio>
+
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="heroSmall">
+        THIS LITTLE WORLD IS FOR
+    </div>
+
+    <h1>
+        Sachi ❤️
+    </h1>
+
+    <p>
+        Because one birthday wish wasn't enough.
+    </p>
+
+    <div class="scrollText">
+        ↓ Scroll slowly ↓
+    </div>
+
+</section>
+
+
+
+
+
+<!-- PHOTOS -->
+
+<section>
+
+    <h2 class="sectionTitle">
+        Little Moments 📸
+    </h2>
+
+    <p class="sectionSub">
+        A few moments worth keeping forever.
+    </p>
+
+
+    <div class="gallery">
+
+        <img src="photo1.jpg">
+        <img src="photo2.jpg">
+        <img src="photo3.jpg">
+        <img src="photo4.jpg">
+        <img src="photo5.jpg">
+        <img src="photo6.jpg">
+
+    </div>
+
+</section>
+
+
+
+
+
+
+
+<!-- =====================================================
+     FULL BIRTHDAY MESSAGE
+===================================================== -->
+
+<section>
+
+    <h2 class="sectionTitle">
+        For You, Sachi ❤️
+    </h2>
+
+
+    <div class="messageBox">
+
+        <p>
+            <strong>
+                Happy Birthday meri Sachi ji, ❤️😂
+            </strong>
+        </p>
+
+
+        <p>
+            Honestly, mujhe nahi pata ye sab tujhe
+            kaise explain karu. Mujhe pata hai ki
+            humara aage shayad koi future nahi hai,
+            aur shayad isi wajah se meri feelings
+            aur bhi confusing hain. But jo feeling
+            mujhe tere liye hai, wo maine honestly
+            kisi aur ke liye kabhi feel nahi ki.
+        </p>
+
+
+        <p>
+            I know mere actions ki wajah se maine
+            tujhe hurt kiya hai, aur jo bhi hua—
+            flirting, casual dates, FWB ya meri
+            stupid harkatein—shayad wo sab mere
+            liye casual tha, but tere case mein
+            kabhi bhi waisa nahi raha.
+        </p>
+
+
+        <p>
+            Tu genuinely mera type hai, aur honestly
+            ab lagta hai ki mere type ka koi aur
+            ho bhi nahi sakta. Tu mujhse choti hai,
+            but maturity mein mujhse bohot aage hai.
+            Main abhi bhi childish harkatein karta
+            rehta hu, cheezein kharab kar deta hu,
+            kabhi bina soche kuch kar deta hu,
+            but teri wahi maturity, teri baatein
+            aur jis tarah tu cheezein samajhti hai,
+            mujhe sabse zyada pasand hai.
+        </p>
+
+
+        <p>
+            Aur sundar toh tu hai hi… bilkul apsara
+            jaisi ❤️. Mujhe pata hai ki humara koi
+            future nahi hai, phir bhi pata nahi kyun
+            main tujhe move on karke bhula nahi paata.
+            Shayad kyunki tu mere liye sirf ek person
+            nahi hai.
+        </p>
+
+
+        <p>
+            Tu mere liye woh hai jiske liye main chahe
+            kitni bhi bakchodi kar lu, kitni bhi galtiyan
+            kar lu, phir bhi dil se hamesha care
+            karta rahunga.
+        </p>
+
+
+        <p>
+            Main perfect nahi hu, aur ye toh tu mujhse
+            better jaanti hai. Main harkatein kar deta hu,
+            kabhi khud hi sab kharab kar deta hu,
+            but one thing I know—I'll always be there
+            for you, jis bhi way mein tu mujhe apni
+            life mein rakhna chahe.
+        </p>
+
+
+        <p>
+            Aur haan, main ladki-baaz hu 😂,
+            but tu… tu alag hai.
+            Bohot alag. Tere liye jo feel karta hu,
+            wo kisi aur ke liye kabhi nahi aaya.
+        </p>
+
+
+        <p class="finalWish">
+
+            So once again,
+
+            <br><br>
+
+            <strong>
+                Happy Happy Sachi Divas
+                😋😌💋😂💦🫂🥳🎉💃🕺🎀🤸🤪🤟🙃💗,
+                Sachi ji… ❤️
+            </strong>
+
+        </p>
+
+
+        <p>
+            Hamesha khush reh, aise hi sundar reh,
+            aur haan, mujhe tolerate karne ke liye
+            tujhe ek lifetime achievement award toh
+            definitely milna chahiye. 😂🏆
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- FINAL SURPRISE -->
+
+<section>
+
+    <h2 class="sectionTitle">
+        One Last Thing...
+    </h2>
+
+    <p class="sectionSub">
+        Don't click this unless you're ready 👀
+    </p>
+
+
+    <button
+        class="surpriseBtn"
+        onclick="showSurprise()"
+    >
+        Open Your Surprise ❤️
+    </button>
+
+
+    <div id="surprise">
+
+        <img src="final.jpg">
+
+        <h2>
+            Happy Birthday, Sachi ❤️
+        </h2>
+
+        <p style="margin-top:15px;color:#aaa;">
+            Here's to more memories,
+            more madness,
+            more laughter
+            and many more birthdays.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<footer>
+
+    Made with ❤️ just for you.
+
+</footer>
+
+</div>
+
+
+
+<script>
+
+
+/* =========================================
+   PASSWORD
+========================================= */
+
+function unlock(){
+
+    const password =
+        document.getElementById("password").value;
+
+    /*
+        PASSWORD
+        CHANGE HERE IF YOU WANT
+    */
+
+    const correctPassword = "SS1127";
+
+
+    if(password === correctPassword){
+
+        document
+            .getElementById("lockScreen")
+            .style.display = "none";
+
+
+        /*
+            IMPORTANT:
+            After password ONLY countdown
+            will appear.
+        */
+
+        document
+            .getElementById("countdownScreen")
+            .style.display = "flex";
+
+
+        startCountdown();
+
+
+    }else{
+
+        document
+            .getElementById("error")
+            .style.display = "block";
+
+    }
+
+}
+
+
+/* =========================================
+   ENTER KEY FOR PASSWORD
+========================================= */
+
+document
+    .getElementById("password")
+    .addEventListener(
+        "keypress",
+        function(event){
+
+            if(event.key === "Enter"){
+
+                unlock();
+
+            }
+
+        }
+    );
+
+
+/* =========================================
+   COUNTDOWN
+   27 AUGUST 2026 — 12:00 AM
+========================================= */
+
+function startCountdown(){
+
+    const birthday =
+        new Date(
+            "August 27, 2026 00:00:00"
+        ).getTime();
+
+
+    const timer =
+    setInterval(function(){
+
+        const now =
+            new Date().getTime();
+
+
+        const distance =
+            birthday - now;
+
+
+        /* =================================
+           BIRTHDAY ARRIVED
+        ================================= */
+
+        if(distance <= 0){
+
+            clearInterval(timer);
+
+
+            document
+                .getElementById("days")
+                .innerText = "00";
+
+            document
+                .getElementById("hours")
+                .innerText = "00";
+
+            document
+                .getElementById("minutes")
+                .innerText = "00";
+
+            document
+                .getElementById("seconds")
+                .innerText = "00";
+
+
+            revealBirthday();
+
+
+            return;
+
+        }
+
+
+        /* =================================
+           CALCULATE
+        ================================= */
+
+        const days =
+            Math.floor(
+                distance /
+                (1000 * 60 * 60 * 24)
+            );
+
+
+        const hours =
+            Math.floor(
+                (
+                    distance %
+                    (1000 * 60 * 60 * 24)
+                )
+                /
+                (1000 * 60 * 60)
+            );
+
+
+        const minutes =
+            Math.floor(
+                (
+                    distance %
+                    (1000 * 60 * 60)
+                )
+                /
+                (1000 * 60)
+            );
+
+
+        const seconds =
+            Math.floor(
+                (
+                    distance %
+                    (1000 * 60)
+                )
+                /
+                1000
+            );
+
+
+        document
+            .getElementById("days")
+            .innerText =
+            String(days)
+            .padStart(2,"0");
+
+
+        document
+            .getElementById("hours")
+            .innerText =
+            String(hours)
+            .padStart(2,"0");
+
+
+        document
+            .getElementById("minutes")
+            .innerText =
+            String(minutes)
+            .padStart(2,"0");
+
+
+        document
+            .getElementById("seconds")
+            .innerText =
+            String(seconds)
+            .padStart(2,"0");
+
+
+    },1000);
+
+}
+
+
+/* =========================================
+   BIRTHDAY REVEAL
+========================================= */
+
+function revealBirthday(){
+
+    /* Hide countdown */
+    document
+        .getElementById("countdownScreen")
+        .style.display = "none";
+
+    /* Show birthday animation */
+    const reveal =
+        document.getElementById("birthdayReveal");
+
+    reveal.classList.add("show");
+
+    /*
+       Start the song immediately when the countdown ends.
+       The password entry counts as user interaction in many
+       browsers, but autoplay policies can still vary.
+    */
+    const music =
+        document.getElementById("music");
+
+    music.currentTime = 0;
+    music.volume = 1;
+
+    music.play()
+        .then(() => {
+
+            playing = true;
+
+            document
+                .getElementById("musicButton")
+                .innerText = "🔊";
+
+        })
+        .catch(() => {
+
+            /*
+               If the browser blocks autoplay, the button
+               remains available so the song can be started
+               manually.
+            */
+
+            playing = false;
+
+            document
+                .getElementById("musicButton")
+                .innerText = "🎵";
+
+        });
+
+    /*
+       After the 4-second birthday reveal,
+       open the complete website.
+    */
+    setTimeout(function(){
+
+        reveal.style.display = "none";
+
+        document
+            .getElementById("website")
+            .style.display = "block";
+
+        window.scrollTo({
+            top: 0,
+            behavior: "instant"
+        });
+
+    },4000);
+
+}
+
+
+/* =========================================
+   MUSIC
+========================================= */
+
+let playing = false;
+
+function toggleMusic(){
+
+    const music =
+        document.getElementById("music");
+
+    const button =
+        document.getElementById("musicButton");
+
+    if(music.paused){
+
+        music.play()
+            .then(() => {
+
+                playing = true;
+                button.innerText = "🔊";
+
+            })
+            .catch(() => {
+
+                playing = false;
+                button.innerText = "🎵";
+
+            });
+
+    }else{
+
+        music.pause();
+
+        playing = false;
+
+        button.innerText = "🎵";
+
+    }
+
+}
+
+
+/* =========================================
+   FINAL SURPRISE
+========================================= */
+
+function showSurprise(){
+
+    document
+        .getElementById("surprise")
+        .style.display = "block";
+
+}
+
+</script>
+
+
+</body>
+</html>
